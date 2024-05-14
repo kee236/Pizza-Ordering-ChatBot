@@ -7,19 +7,10 @@ const {Card, Suggestion} = require('dialogflow-fulfillment');
 
 admin.initializeApp({
 	credential: admin.credential.applicationDefault(),
-  	databaseURL:
-'https://limgar-offical-burk-default-rtdb.asia-southeast1.firebasedatabase.app/'
- 'ws://yoyopizza-nciepm.firebaseio.com/'
+    databaseURL: "https://limgar-offical-burk-default-rtdb.asia-southeast1.firebasedatabase.app"
 });
  
-var admin = require("firebase-admin");
 
-var serviceAccount = require("path/to/serviceAccountKey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://limgar-offical-burk-default-rtdb.asia-southeast1.firebasedatabase.app"
-});
 
 
 
