@@ -26,21 +26,29 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     agent.add(`I'm sorry, can you try again?`);
   }
 
-  function addorder(agent){
-    const pizzatype = agent.parameters.type;
-    const pizzasize = agent.parameters.size;
-    const pizzacount = agent.parameters.count;
-    const customername = agent.parameters.name;
-    const customerphone = agent.parameters.phone;
-    const customeraddress = agent.parameters.address;
+function AskPrice(agent) {
+    agent.add(`I didn't understand`);
+    agent.add(`I'm sorry, can you try again?`);
+  }
+
+
+
+
+  function getAddress(agent){
+    const products_type = agent.parameters.product_type;
+    const price = getprice (product_type);
+    const payment = agent.parameters.payment;
+    const Name = agent.parameters.Name;
+    const Phone = agent.parameters.Phone;
+    const Address = agent.parameters.Address;
     
     return admin.database().ref('data').set({
-    	pizzatype: pizzatype,
-      	pizzasize: pizzasize,
-      	pizzacount: pizzacount,
-      customername: customername,
-      customerphone: customerphone,
-      customeraddress: customeraddress
+    	product_type: product_type,
+      	price : price,
+      payment : payment,
+      Name: Name,
+      Phone: Phone,
+      Address: Address
     });
   }
   // Run the proper function handler based on the matched Dialogflow intent name
